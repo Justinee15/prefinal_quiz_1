@@ -1,0 +1,81 @@
+﻿@model PREFINAL_QUIZ1.Models.TitlesModel
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>TitlesModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.pubID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.pubID, Model.publisherNames, "Select one", new { @Class = "form-control" })
+                @Html.ValidationMessageFor(model => model.pubID, "", new { @class = "text-danger" })
+            </div>
+        </div>     
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.authorID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.authorID, Model.authorNames, "Select one", new { @Class = "form-control" })
+                @Html.ValidationMessageFor(model => model.authorID, "", new { @class = "text-danger" })
+            </div>
+        </div>  
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.titleName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.titleName)
+                @Html.ValidationMessageFor(model => model.titleName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.titlePrice, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.titlePrice)
+                @Html.ValidationMessageFor(model => model.titlePrice)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.titlePubDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.titlePubDate)
+                @Html.ValidationMessageFor(model => model.titlePubDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.titleNotes, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.titleNotes)
+                @Html.ValidationMessageFor(model => model.titleNotes)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

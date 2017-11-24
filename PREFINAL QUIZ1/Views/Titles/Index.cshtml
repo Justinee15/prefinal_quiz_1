@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PREFINAL_QUIZ1.Models.TitlesModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.pubName)
+        </th>
+    
+        <th>
+            @Html.DisplayNameFor(model => model.authorFN) @Html.DisplayNameFor(model => model.authorLN)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.titleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.titlePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.titlePubDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.titleNotes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.pubName)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.authorFN) @Html.DisplayFor(modelItem => item.authorLN)
+        </td>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.titleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.titlePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.titlePubDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.titleNotes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.titleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.titleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.titleID })
+        </td>
+    </tr>
+}
+
+</table>
